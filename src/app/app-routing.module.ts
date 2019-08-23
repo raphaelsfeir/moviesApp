@@ -4,12 +4,21 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
     {
         path: '',
-        loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+        loadChildren: './home/home.module#HomePageModule'
     },
     {
-        path: 'tabs',
-        redirectTo: ''
-    }
+        path: 'tabs/list',
+        loadChildren: './home/list/list.module#ListPageModule'
+    },
+    {
+        path: 'tabs/settings',
+        loadChildren: './home/settings/settings.module#SettingsPageModule'
+    },
+    {
+        path: 'tabs/user',
+        loadChildren: './home/user/user.module#UserPageModule'
+    },
+  { path: 'single', loadChildren: './single/single.module#SinglePageModule' }
 ];
 @NgModule({
   imports: [
