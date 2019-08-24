@@ -13,9 +13,8 @@ export class ListPage implements OnInit {
   constructor(private _api: ApiService) { }
 
   ngOnInit() {
-    this._api.list.then(data => {
-      console.log(data.data);
-      this.list = JSON.parse(data.data.toString()).results;
+    this._api.list.subscribe(data => {
+      this.list = data['results'];
       console.log('Films : ', this.list);
     });
   }

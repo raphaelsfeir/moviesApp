@@ -6,8 +6,10 @@
 
 <ion-content no-padding>
     <ul>
-        <li *ngFor="let f of list" [routerLink]="'/single/' + f.id">
-            <img [src]="'https://image.tmdb.org/t/p/w200' + f.poster_path" style="width: 33.3333%">
+        <li *ngFor="let f of list">
+            <a [routerLink]="'/single/' + f.id">
+                <img [src]="'https://image.tmdb.org/t/p/w200' + f.poster_path" style="width: 33.3333%">
+            </a>
         </li>
     </ul>
 </ion-content>

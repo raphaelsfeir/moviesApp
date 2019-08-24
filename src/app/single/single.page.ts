@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from '../services/api.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-single',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SinglePage implements OnInit {
 
-  constructor() { }
+  single: any;
+
+  constructor(private _api: ApiService, private _activ: ActivatedRoute) { }
 
   ngOnInit() {
+    const id = +this._activ.snapshot.params.id;
+    this._api.getSingle(id).subscribe(data => {
+      this.single = data;
+    });
   }
 
 }

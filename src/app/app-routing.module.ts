@@ -18,7 +18,7 @@ const routes: Routes = [
         path: 'tabs/user',
         loadChildren: './home/user/user.module#UserPageModule'
     },
-  { path: 'single', loadChildren: './single/single.module#SinglePageModule' }
+  { path: 'single/:id', loadChildren: './single/single.module#SinglePageModule' }
 ];
 @NgModule({
   imports: [
