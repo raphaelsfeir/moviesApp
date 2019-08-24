@@ -20,4 +20,8 @@ export class SinglePage implements OnInit {
     });
   }
 
+  save() {
+
+  }
+
 }
