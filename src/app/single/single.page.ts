@@ -16,16 +16,23 @@ export class SinglePage implements OnInit {
 
   constructor(private _api: ApiService, private _activ: ActivatedRoute, private _sys: SystemService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.id = +this._activ.snapshot.params.id;
     this._api.getSingle(this.id).subscribe(data => {
       this.single = data;
     });
-    this.status = this._sys.getStatus(this.id);
+    this.status = await this._sys.getStatus(this.id, 'movies');
+    console.log(this.status);
   }
 
-  save() {
-    this._sys.save(this.id);
+  async save() {
+    await this._sys.save(this.id);
+    this.status = await this._sys.getStatus(this.id, 'movies');
+  }
+
+  async unsave() {
+    await this._sys.unsave(this.id);
+    this.status = await this._sys.getStatus(this.id, 'movies');
   }
 
 }

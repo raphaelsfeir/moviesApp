@@ -9,9 +9,13 @@
       <p><ion-icon name="star"></ion-icon>{{single?.vote_average}}</p>
       <p><ion-icon name="calendar"></ion-icon> {{single?.release_date}}</p>
       <p><ion-icon name="videocam"></ion-icon> {{single?.production_companies[0].name}}</p>
-      <ion-button (click)="save()">
+      <ion-button (click)="save()" *ngIf="status == 'new'">
         <ion-icon name="bookmark" slot="start"></ion-icon>
         Save
+      </ion-button>
+      <ion-button (click)="unsave()" *ngIf="status == 'saved'" color="dark">
+        <ion-icon name="bookmark" slot="start"></ion-icon>
+        Saved
       </ion-button>
     </ion-col>
   </ion-row>
