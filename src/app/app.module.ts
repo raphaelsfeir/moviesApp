@@ -15,6 +15,7 @@ import {IonicStorageModule} from '@ionic/storage';
 import {SystemService} from './services/system.service';
 import {InterfaceService} from './services/interface.service';
 import {ApiService} from './services/api.service';
+import {CredentialsService} from './services/credentials.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,7 +34,8 @@ import {ApiService} from './services/api.service';
       HTTP,
       SystemService,
       InterfaceService,
-      ApiService
+      ApiService,
+      CredentialsService
   ],
   bootstrap: [AppComponent]
 })
