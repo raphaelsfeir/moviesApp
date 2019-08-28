@@ -1,6 +1,9 @@
 <app-header title="Trends" icon="list"></app-header>
 
 <ion-content no-padding>
+    <div *ngIf="loading">
+        <app-loader></app-loader>
+    </div>
     <ul>
         <li *ngFor="let f of list">
             <a [routerLink]="'/single/' + f.id">

@@ -35,6 +35,12 @@ ionic serve
 #### On a device
 The app needs to access your local storage.
 ```
-ionic cordova platform add <android | ios>
-ionic cordova run <android | ios>
+ionic cordova platform add (<android | ios>)
+ionic cordova run (<android | ios>)
+```
+
+# Building the project
+```
+ionic cordova platform add (<android | ios>)
+ionic cordova build (<android | ios>) [--prod | --debug]
 ```

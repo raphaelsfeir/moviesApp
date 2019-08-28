@@ -1,5 +1,7 @@
 <app-header title="Settings" icon="settings"></app-header>
 
 <ion-content>
-
+    <div *ngIf="loading">
+        <app-loader></app-loader>
+    </div>
 </ion-content>

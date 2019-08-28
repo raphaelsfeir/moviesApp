@@ -13,12 +13,16 @@ export class SinglePage implements OnInit {
   single: any;
   id: number;
   status: 'saved' | 'new';
+  loading: boolean;
 
-  constructor(private _api: ApiService, private _activ: ActivatedRoute, private _sys: SystemService) { }
+  constructor(private _api: ApiService, private _activ: ActivatedRoute, private _sys: SystemService) {
+    this.loading = true;
+  }
 
   async ngOnInit() {
     this.id = +this._activ.snapshot.params.id;
     this._api.getSingle(this.id).subscribe(data => {
+      this.loading = false;
       this.single = data;
     });
     this.status = await this._sys.getStatus(this.id, 'movies');

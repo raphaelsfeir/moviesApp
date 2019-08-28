@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPage implements OnInit {
 
-  constructor() { }
+  loading: boolean;
+
+  constructor() {
+    this.loading = true;
+  }
 
   ngOnInit() {
   }

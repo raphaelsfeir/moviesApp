@@ -1,5 +1,7 @@
 <app-header title="My movies" icon="contact"></app-header>
 
 <ion-content>
-
+    <div *ngIf="loading">
+        <app-loader></app-loader>
+    </div>
 </ion-content>

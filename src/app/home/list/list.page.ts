@@ -9,12 +9,16 @@ import {ApiService} from '../../services/api.service';
 export class ListPage implements OnInit {
 
   list: any[];
+  loading: boolean;
 
-  constructor(private _api: ApiService) { }
+  constructor(private _api: ApiService) {
+    this.loading = true;
+  }
 
   ngOnInit() {
     this._api.list.subscribe(data => {
       this.list = data['results'];
+      this.loading = false;
       console.log('Films : ', this.list);
     });
   }

@@ -1,23 +1,29 @@
 <app-header [title]="single?.title" [back]="true"></app-header>
 
 <ion-content padding>
-  <ion-row>
-    <ion-col size="5">
-      <img [src]="'https://image.tmdb.org/t/p/w500' + single?.poster_path">
-    </ion-col>
-    <ion-col size="7">
-      <p><ion-icon name="star"></ion-icon>{{single?.vote_average}}</p>
-      <p><ion-icon name="calendar"></ion-icon> {{single?.release_date}}</p>
-      <p><ion-icon name="videocam"></ion-icon> {{single?.production_companies[0].name}}</p>
-      <ion-button (click)="save()" *ngIf="status == 'new'">
-        <ion-icon name="bookmark" slot="start"></ion-icon>
-        Save
-      </ion-button>
-      <ion-button (click)="unsave()" *ngIf="status == 'saved'" color="dark">
-        <ion-icon name="bookmark" slot="start"></ion-icon>
-        Saved
-      </ion-button>
-    </ion-col>
-  </ion-row>
-  <p>{{single?.overview}}</p>
+  <div *ngIf="loading; else loaded">
+    <app-loader></app-loader>
+  </div>
+  <ng-template #loaded>
+    <ion-row>
+      <ion-col size="5">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + single?.poster_path">
+      </ion-col>
+      <ion-col size="7">
+        <p><ion-icon name="star"></ion-icon>{{single?.vote_average}}</p>
+        <p><ion-icon name="calendar"></ion-icon> {{single?.release_date}}</p>
+        <p><ion-icon name="videocam"></ion-icon> {{single?.production_companies[0].name}}</p>
+        <ion-button (click)="save()" *ngIf="status == 'new'">
+          <ion-icon name="bookmark" slot="start"></ion-icon>
+          Save
+        </ion-button>
+        <ion-button (click)="unsave()" *ngIf="status == 'saved'" color="dark">
+          <ion-icon name="bookmark" slot="start"></ion-icon>
+          Saved
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <p>{{single?.overview}}</p>
+  </ng-template>
+
 </ion-content>
