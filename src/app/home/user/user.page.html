@@ -4,4 +4,11 @@
     <div *ngIf="loading">
         <app-loader></app-loader>
     </div>
+    <ul class="collection">
+        <li *ngFor="let f of list.movies">
+            <a [routerLink]="'/single/' + f.id">
+                <img [src]="'https://image.tmdb.org/t/p/w200' + f.poster_path" style="width: 33.3333%">
+            </a>
+        </li>
+    </ul>
 </ion-content>
