@@ -3,6 +3,7 @@ import {HTTP} from '@ionic-native/http/ngx';
 import {HttpClient} from '@angular/common/http';
 import {CredentialsService} from './credentials.service';
 import {SystemService} from './system.service';
+import {from} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class ApiService {
   }
 
   getLocal() {
-    return this._sys.getMem('saved');
+    return from(this._sys.getMem('saved'));
   }
 
   arrayToDetails(array: number[], type: 'movie' | 'tv') {

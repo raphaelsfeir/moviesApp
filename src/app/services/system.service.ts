@@ -47,7 +47,6 @@ export class SystemService {
     } else {
       try {
         const mem = await this.getMem(key);
-        console.log(mem[`${(!type) ? 'movies' : type}`].indexOf(id));
         if (mem[`${(!type) ? 'movies' : type}`].indexOf(id) > 0) {
           mem[`${(!type) ? 'movies' : type}`].splice(mem[`${(!type) ? 'movies' : type}`].indexOf(id), 1);
         }

@@ -16,11 +16,10 @@ export class UserPage implements OnInit {
   }
 
   ngOnInit() {
-    this._api.getLocal().then(l => {
+    this._api.getLocal().subscribe(l => {
       this.loading = false;
-      this.list.movies.push(this._api.arrayToDetails(l.movies, 'movie'));
-      console.log(this.list);
-      this.list.tv.push(this._api.arrayToDetails(l.tv, 'tv'));
+      this.list.movies = this._api.arrayToDetails(l.movies, 'movie');
+      this.list.tv = this._api.arrayToDetails(l.tv, 'tv');
     });
   }
 
